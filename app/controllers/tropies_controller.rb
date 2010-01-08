@@ -10,6 +10,15 @@ class TropiesController < ApplicationController
     end
   end
 
+  def random
+    @random_tropy = Tropy.find_by_id rand(Tropy.count) + 1
+    if @random_tropy
+      redirect_to @random_tropy
+    else
+      redirect_to :action => "new"
+    end
+  end
+
   # GET /tropies/1
   # GET /tropies/1.xml
   def show

@@ -7,6 +7,11 @@ class TropiesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:tropies)
   end
 
+  test "should get random" do
+    get :random
+    assert_redirected_to tropy_path(:new)
+  end
+
   test "should get new" do
     get :new
     assert_response :success
