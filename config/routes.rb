@@ -44,8 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :controller => "tropies" do |t|
     t.new_tropy 'c', :action => "new"
   end
-  #map.resources :tropies, :as => "t", :only => [:new, :edit, :create, :update]
-  map.resources :tropies, :as => "t"
+  map.resources :tropies, :as => "t", :only => [:create, :update]
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should

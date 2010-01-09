@@ -4,4 +4,8 @@ class Tropy < ActiveRecord::Base
   def before_validation_on_create
     self.pageid ||= ActiveSupport::SecureRandom.hex
   end
+
+  def to_param
+    pageid
+  end
 end

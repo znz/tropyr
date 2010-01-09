@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  pageid: MyString
+  pageid: <%= ActiveSupport::SecureRandom.hex %>
   content: MyText
 
 two:
-  pageid: MyString
+  pageid: <%= ActiveSupport::SecureRandom.hex %>
   content: MyText

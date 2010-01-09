@@ -3,7 +3,7 @@ class TropiesController < ApplicationController
   def index
     @random_tropy = Tropy.find_by_id rand(Tropy.count) + 1
     if @random_tropy
-      @refresh_uri = tropy_url(:pageid => @random_tropy.pageid)
+      @refresh_uri = tropy_url(@random_tropy)
     else
       # empty database
       redirect_to :action => "new"
@@ -54,7 +54,7 @@ class TropiesController < ApplicationController
     respond_to do |format|
       if @tropy.save
         flash[:notice] = 'Tropy was successfully created.'
-        format.html { redirect_to(tropy_url(:pageid => @tropy.pageid)) }
+        format.html { redirect_to(@tropy) }
         format.xml  { render :xml => @tropy, :status => :created, :location => @tropy }
       else
         format.html { render :action => "new" }
@@ -75,7 +75,7 @@ class TropiesController < ApplicationController
     respond_to do |format|
       if @tropy.update_attributes(params[:tropy])
         flash[:notice] = 'Tropy was successfully updated.'
-        format.html { redirect_to(tropy_url(:pageid => @tropy.pageid)) }
+        format.html { redirect_to(@tropy) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,7 +87,7 @@ class TropiesController < ApplicationController
   # DELETE /tropies/1
   # DELETE /tropies/1.xml
   def destroy
-    @tropy = Tropy.find(params[:id])
+    @tropy = Tropy.find_by_pageid(params[:pageid])
     @tropy.destroy
 
     respond_to do |format|

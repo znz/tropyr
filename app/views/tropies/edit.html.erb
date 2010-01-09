@@ -1,4 +1,4 @@
-<h1>Editing Page</h1>
+<h1><%= @title = 'Editing Page' %></h1>
 
 <% form_for(@tropy) do |f| %>
   <%= f.error_messages %>
@@ -13,4 +13,4 @@
 <% end %>
 
 <%= link_to 'Show', @tropy %> |
-<%= link_to 'Random', tropies_path %>
+<%= link_to 'Random', random_path %>
