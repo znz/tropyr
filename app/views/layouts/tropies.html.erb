@@ -7,7 +7,7 @@
 <%- if @refresh_url -%>
   <meta http-equiv="refresh" content="2; url=<%=h @refresh_url %>" />
 <%- end -%>
-  <title><%= @title %></title>
+  <title><%=h @title %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
