@@ -9,6 +9,10 @@
 <%- end -%>
   <title><%=h @title %></title>
   <%= stylesheet_link_tag 'scaffold' %>
+  <style type="text/css"><!--
+    body { color: black; background-color: <%= @bgcolor || "white" %>; }
+    a { background-color: #ECE7F4 }
+  --></style>
 </head>
 <body>
 

@@ -13,7 +13,8 @@ class TropiesController < ApplicationController
   # GET /tropies/1
   # GET /tropies/1.xml
   def show
-    @tropy = Tropy.find_by_pageid(params[:pageid])
+    pageid = params[:pageid]
+    @tropy = Tropy.find_by_pageid(pageid)
 
     unless @tropy
       redirect_to :action => "index"
@@ -25,6 +26,11 @@ class TropiesController < ApplicationController
     content.gsub!(/\r?\n/, "\n")
     content.gsub!(/\n{2,}/, "</p>\n<p>")
     @content = "<p>#{content}</p>"
+
+    r = pageid[0, 2].hex % 32
+    g = pageid[2, 2].hex % 32
+    b = pageid[4, 2].hex % 32
+    @bgcolor = "#%02X%02X%02X" % [r, g, b]
 
     respond_to do |format|
       format.html # show.html.erb
