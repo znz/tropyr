@@ -32,13 +32,13 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
-  map.root :controller => "tropies", :action => "index"
-  map.random '', :controller => "tropies", :action => "index"
+
+  map.random '', :controller => "tropies", :action => "index", :conditions => { :method => :get }
 
   # See how all your routes lay out with "rake routes"
 
   map.with_options :controller => "tropies", :pageid => /[0-9a-f]{32}/ do |t|
-    t.tropy ':pageid.:format', :action => "show"
+    t.tropy ':pageid.:format', :action => "show", :conditions => { :method => :get }
     t.edit_tropy 'e/:pageid.:format', :action => "edit"
     t.connect ':pageid.:format', :action => "update", :conditions => { :method => :put }
   end
