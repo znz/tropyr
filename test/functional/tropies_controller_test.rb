@@ -14,7 +14,7 @@ class TropiesControllerTest < ActionController::TestCase
 
   test "should create tropy" do
     assert_difference('Tropy.count') do
-      post :create, :tropy => { }
+      post :create, :tropy => { "content" => "dummy" }
     end
 
     assert_redirected_to tropy_path(assigns(:tropy))
