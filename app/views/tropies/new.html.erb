@@ -1,3 +1,7 @@
+<p id="navi">
+<%= link_to 'Random', random_path %>
+</p>
+
 <h1><%= @title = 'New Page' %></h1>
 
 <% form_for(@tropy) do |f| %>
@@ -10,5 +14,3 @@
     <%= f.submit 'Create' %>
   </p>
 <% end %>
-
-<%= link_to 'Random', random_path %>

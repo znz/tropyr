@@ -8,10 +8,10 @@
   <meta http-equiv="refresh" content="2; url=<%=h @refresh_url %>" />
 <%- end -%>
   <title><%=h @title %></title>
-  <%#= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'tropyr' %>
   <style type="text/css"><!--
-    body { color: black; background-color: <%= @bgcolor || "white" %>; }
-    a { background-color: #ECE7F4 }
+    body { color: <%= @color || "black" %>; background-color: <%= @bgcolor || "white" %>; }
+    a { background-color: <%= @bgcolor || "white" %> }
   --></style>
 </head>
 <body>

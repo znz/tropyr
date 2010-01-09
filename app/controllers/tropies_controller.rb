@@ -21,8 +21,8 @@ class TropiesController < ApplicationController
       return
     end
 
-    @caption, content = @tropy.content.split(/\r?\n/, 2)
-    @title = @caption
+    @title, content = @tropy.content.split(/\r?\n/, 2)
+    content = content.to_s
     content.gsub!(/\r?\n/, "\n")
     content.gsub!(/\n{2,}/, "</p>\n<p>")
     @content = "<p>#{content}</p>"

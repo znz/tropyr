@@ -1,6 +1,8 @@
-<h1><%=h @caption %></h1>
-<%= @content %>
-
+<p id="navi">
 <%= link_to 'Edit', edit_tropy_path(@tropy) %> |
 <%= link_to 'New', new_tropy_path %> |
 <%= link_to 'Random', random_path %>
+</p>
+
+<h1><%=h @title %></h1>
+<%= @content %>
