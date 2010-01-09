@@ -3,7 +3,7 @@
   @title = caption
 -%>
 <h1><%=h caption %></h1>
-<pre><%=h content %></pre>
+<p><%=h(content).gsub(/\r?\n/, "<br />\n") %></p>
 
 <%= link_to 'Edit', edit_tropy_path(@tropy) %> |
 <%= link_to 'New', new_tropy_path %> |
