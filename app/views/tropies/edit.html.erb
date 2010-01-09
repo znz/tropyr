@@ -1,20 +1,16 @@
-<h1>Editing tropy</h1>
+<h1>Editing Page</h1>
 
 <% form_for(@tropy) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :pageid %><br />
-    <%= f.text_field :pageid %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
     <%= f.text_area :content %>
   </p>
+
   <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
 <%= link_to 'Show', @tropy %> |
-<%= link_to 'Back', tropies_path %>
+<%= link_to 'Random', tropies_path %>

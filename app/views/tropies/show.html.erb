@@ -1,13 +1,7 @@
-<p>
-  <b>Pageid:</b>
-  <%=h @tropy.pageid %>
-</p>
+<% caption, content = @tropy.content.split(/\r?\n/, 2) %>
+<h1><%=h caption %></h1>
+<pre><%=h content %></pre>
 
-<p>
-  <b>Content:</b>
-  <%=h @tropy.content %>
-</p>
-
-
-<%= link_to 'Edit', edit_tropy_path(@tropy) %> |
-<%= link_to 'Back', tropies_path %>
+<%= link_to 'Edit', edit_tropy_path(:pageid => @tropy.pageid) %> |
+<%= link_to 'New', new_tropy_path %> |
+<%= link_to 'Random', random_path %>
