@@ -20,6 +20,12 @@ class TropiesController < ApplicationController
       return
     end
 
+    @caption, content = @tropy.content.split(/\r?\n/, 2)
+    @title = @caption
+    content.gsub!(/\r?\n/, "\n")
+    content.gsub!(/\n{2,}/, "</p>\n<p>")
+    @content = "<p>#{content}</p>"
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tropy }
