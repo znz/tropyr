@@ -3,7 +3,7 @@ class TropiesController < ApplicationController
   def index
     @random_tropy = Tropy.find_by_id rand(Tropy.count) + 1
     if @random_tropy
-      @refresh_uri = tropy_url(@random_tropy)
+      @refresh_url = tropy_url(:pageid => @random_tropy.pageid)
     else
       # empty database
       redirect_to :action => "new"

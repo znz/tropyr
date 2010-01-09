@@ -40,11 +40,13 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :controller => "tropies", :pageid => /[0-9a-f]{32}/ do |t|
     t.tropy ':pageid.:format', :action => "show"
     t.edit_tropy 'e/:pageid.:format', :action => "edit"
+    t.connect ':pageid.:format', :action => "update", :conditions => { :method => :put }
   end
   map.with_options :controller => "tropies" do |t|
-    t.new_tropy 'c', :action => "new"
+    t.new_tropy 'c.:format', :action => "new"
+    t.tropies '.:format', :action => "create", :conditions => { :method => :post }
   end
-  map.resources :tropies, :as => "t", :only => [:create, :update]
+  #map.resources :tropies, :as => "t", :only => [:create, :update]
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should

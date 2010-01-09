@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<%- if @refresh_uri -%>
-  <meta http-equiv="refresh" content="2; url=<%= @refresh_uri %>" />
+<%- if @refresh_url -%>
+  <meta http-equiv="refresh" content="2; url=<%=h @refresh_url %>" />
 <%- end -%>
   <title><%= @title %></title>
   <%= stylesheet_link_tag 'scaffold' %>
