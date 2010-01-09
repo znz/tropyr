@@ -27,9 +27,9 @@ class TropiesController < ApplicationController
     content.gsub!(/\n{2,}/, "</p>\n<p>")
     @content = "<p>#{content}</p>"
 
-    r = pageid[0, 2].hex % 32
-    g = pageid[2, 2].hex % 32
-    b = pageid[4, 2].hex % 32
+    r = 255 - pageid[0, 2].hex % 32
+    g = 255 - pageid[2, 2].hex % 32
+    b = 255 - pageid[4, 2].hex % 32
     @bgcolor = "#%02X%02X%02X" % [r, g, b]
 
     respond_to do |format|
