@@ -33,20 +33,19 @@ ActionController::Routing::Routes.draw do |map|
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
 
-  map.random '', :controller => "tropies", :action => "index", :conditions => { :method => :get }
-
   # See how all your routes lay out with "rake routes"
 
   map.with_options :controller => "tropies", :pageid => /[0-9a-f]{32}/ do |t|
-    t.tropy ':pageid.:format', :action => "show", :conditions => { :method => :get }
     t.edit_tropy 'e/:pageid.:format', :action => "edit"
     t.connect ':pageid.:format', :action => "update", :conditions => { :method => :put }
+    t.tropy ':pageid.:format', :action => "show"
   end
   map.with_options :controller => "tropies" do |t|
     t.new_tropy 'c.:format', :action => "new"
     t.tropies '.:format', :action => "create", :conditions => { :method => :post }
   end
   #map.resources :tropies, :as => "t", :only => [:create, :update]
+  map.random '', :controller => "tropies", :action => "index"
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
