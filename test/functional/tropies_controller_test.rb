@@ -4,7 +4,7 @@ class TropiesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:tropies)
+    assert_not_nil assigns(:refresh_url)
   end
 
   test "should get new" do

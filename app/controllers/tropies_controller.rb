@@ -1,7 +1,7 @@
 class TropiesController < ApplicationController
   # GET /tropies
   def index
-    @random_tropy = Tropy.find_by_id rand(Tropy.count) + 1
+    @random_tropy = Tropy.first(:offset => rand(Tropy.count))
     if @random_tropy
       @refresh_url = tropy_url(:pageid => @random_tropy.pageid)
     else
